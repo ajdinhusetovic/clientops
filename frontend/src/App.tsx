@@ -1,5 +1,6 @@
-import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/react";
+import { Show, SignInButton, SignUpButton } from "@clerk/react";
 
+import { DashboardPage } from "./pages/DashboardPage";
 import "./App.css";
 
 function App() {
@@ -8,21 +9,18 @@ function App() {
       <h1>ClientOps</h1>
 
       <Show when="signed-out">
-        <p>Manage your clients, projects and tasks.</p>
+        <section>
+          <p>Manage your clients, projects and tasks.</p>
 
-        <div>
-          <SignInButton />
-          <SignUpButton />
-        </div>
+          <div>
+            <SignInButton />
+            <SignUpButton />
+          </div>
+        </section>
       </Show>
 
       <Show when="signed-in">
-        <header>
-          <h2>Dashboard</h2>
-          <UserButton />
-        </header>
-
-        <p>You are signed in.</p>
+        <DashboardPage />
       </Show>
     </main>
   );
