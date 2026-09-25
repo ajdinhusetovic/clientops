@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: clientops-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: clientops
+      POSTGRES_PASSWORD: clientops_password
+      POSTGRES_DB: clientops
+    ports:
+      - "5433:5432"
+    volumes:
+      - clientops_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  clientops_postgres_data:
